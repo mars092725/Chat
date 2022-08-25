@@ -12,11 +12,13 @@
 
 
 Mysql数据库设计：需要设计五张表，用于存放注册用户的User表，存放好友的Friend表，存放建立的群组信息表AllGroup，存放群组成员信息的GroupUser，存放当用户不在线时的所有离线信息OfflineMessage，表中的具体信息如下。
+```bash
 1. User: id(PRI) name  password  state("offline"/"online")
 2. Friend: userid(联合主键)  friendif(联合主键)
 3. AllGroup: id(PRI)  groupname  groupdesc
 4. GroupUser: groupid(联合主键)  userid（联合主键） grouprole（"creator"/"normal"）
 5. OfflineMessage: userid  message
+```
 
 关于nginx负载均衡的配置，修改nginx的配置信息，位于/usr/local/nginx/conf/nginx.conf，增加内容如下：
 ```bash
